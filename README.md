@@ -5,6 +5,11 @@ A simple and elegant React Counter App built with **React + Vite**. Features Inc
 ![React](https://img.shields.io/badge/React-19-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
 
+
+## live link
+
+https://preeminent-valkyrie-995c9c.netlify.app/
+
 ## Features
 
 - **Increment** — Increase the counter value
