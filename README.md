@@ -1,12 +1,8 @@
 # React Counter App
 
-A simple and elegant React Counter App built with **React + Vite**. Features Increment, Decrement, and Reset buttons with a premium dark-themed UI.
+A simple and elegant React Counter App built with **React**. Features Increment, Decrement, and Reset buttons with a premium dark-themed UI.
 
-![React](https://img.shields.io/badge/React-19-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
-
-
-## live link
+## Live link
 
 https://preeminent-valkyrie-995c9c.netlify.app/
 
@@ -22,8 +18,7 @@ https://preeminent-valkyrie-995c9c.netlify.app/
 ## Tech Stack
 
 - React 19
-- Vite 8
-- Vanilla CSS (no external UI libraries)
+- CSS 
 
 ## Getting Started
 
@@ -60,21 +55,3 @@ npm run build
 
 The production-ready files will be in the `dist/` folder.
 
-## Project Structure
-
-```
-react-counter-app/
-├── public/
-├── src/
-│   ├── App.jsx        # Main Counter component
-│   ├── App.css        # Component styles & animations
-│   ├── index.css      # Global styles & CSS variables
-│   └── main.jsx       # App entry point
-├── index.html
-├── package.json
-└── vite.config.js
-```
-
-## Screenshots
-
-The app features a dark glassmorphism design with animated background orbs, gradient counter text, and interactive button effects.
