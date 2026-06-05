@@ -1,0 +1,356 @@
+/* ===== App Layout ===== */
+.app-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* ===== Animated Background ===== */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.bg-orb--cyan {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-cyan);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.bg-orb--purple {
+  width: 350px;
+  height: 350px;
+  background: var(--accent-purple);
+  bottom: -80px;
+  right: -80px;
+  animation-delay: -3s;
+}
+
+.bg-orb--pink {
+  width: 250px;
+  height: 250px;
+  background: var(--accent-pink);
+  top: 50%;
+  right: 20%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* ===== Counter Card ===== */
+.counter-card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 3.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition-smooth);
+  min-width: 380px;
+}
+
+.counter-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 80px rgba(0, 212, 255, 0.2);
+}
+
+/* ===== Title ===== */
+.counter-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* ===== Counter Display ===== */
+.counter-display {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.counter-value {
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: var(--transition-smooth);
+  user-select: none;
+}
+
+.counter-value--positive {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.counter-value--negative {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.counter-value--zero {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.counter-value--animate {
+  animation: pop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ===== Counter Label ===== */
+.counter-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+}
+
+/* ===== Buttons Container ===== */
+.counter-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Button Base ===== */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  user-select: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+/* ===== Button Variants ===== */
+.btn--increment {
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+.btn--increment::before {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(52, 211, 153, 0.1));
+}
+
+.btn--increment:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+}
+
+.btn--increment:hover::before {
+  opacity: 1;
+}
+
+.btn--decrement {
+  border-color: rgba(244, 114, 182, 0.25);
+}
+
+.btn--decrement::before {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(248, 113, 113, 0.1));
+}
+
+.btn--decrement:hover {
+  border-color: rgba(244, 114, 182, 0.5);
+  box-shadow: 0 8px 30px rgba(244, 114, 182, 0.2);
+}
+
+.btn--decrement:hover::before {
+  opacity: 1;
+}
+
+.btn--reset {
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.btn--reset::before {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(168, 85, 247, 0.1));
+}
+
+.btn--reset:hover {
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.2);
+}
+
+.btn--reset:hover::before {
+  opacity: 1;
+}
+
+/* ===== Button Icon ===== */
+.btn-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ===== Ripple Effect ===== */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-anim 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== Step Size Control ===== */
+.step-control {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.step-input {
+  width: 60px;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.step-input:focus {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+}
+
+/* ===== Particle Burst ===== */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: particle-fly 0.8s ease-out forwards;
+}
+
+@keyframes particle-fly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .counter-card {
+    min-width: auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .counter-value {
+    font-size: 5rem;
+  }
+
+  .counter-buttons {
+    gap: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .bg-orb {
+    opacity: 0.25;
+  }
+}
